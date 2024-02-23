@@ -3,11 +3,19 @@ import pandas as pd
 import numpy as np
 import pickle
 
+<<<<<<< HEAD
 cleaned_df = pd.read_csv('data/cleaned_data.csv')
 X = cleaned_df.drop(['rent_amount'], axis=1)
 
 # Load the trained model
 with open('hyd_house_rent_prices.pkl', 'rb') as model_file:
+=======
+cleaned_df = pd.read_csv('cleaned.csv')
+X = cleaned_df.drop(['rent_amount'], axis=1)
+
+# Load the trained model
+with open('hyd_house_rent_prices.pickle', 'rb') as model_file:
+>>>>>>> d5b59206c1e351b0ae57cd7fdd166bef3c9461e3
     best_model = pickle.load(model_file)
 
 
