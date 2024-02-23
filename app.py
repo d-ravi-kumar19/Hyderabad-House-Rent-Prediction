@@ -2,13 +2,15 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-
+from sklearn.linear_model import LinearRegression
 
 cleaned_df = pd.read_csv('data/cleaned_data.csv')
 X = cleaned_df.drop(['rent_amount','localityId'], axis=1)
 
 with open('hyd_house_rent_prices.pkl', 'rb') as model_file:
     best_model = pickle.load(model_file)
+    if isinstance(best_model, LinearRegression):
+        best_model.check_input = False
 
 def reverse_type_bhk_encoding(value):
     d = {0.5: "RK1", 1: 'BHK1', 2: 'BHK2', 3: 'BHK3', 4: 'BHK4', 5: 'BHK4PLUS'}
@@ -80,6 +82,4 @@ if st.button('Predict Rent'):
         st.success(f'Predicted Rent:  {float(prediction_result):.2f} INR')
     else:
         st.error(f'Selected Locality "{localityId}" not found in training data.')
-
-
 
