@@ -1,5 +1,5 @@
-# Hyderabad House Rent Prediction
-
+# Hyderabad House Rent Prediction 
+### Progress: ![](https://geps.dev/progress/100)
 ## Overview
 This repository contains a project focused on predicting house rents in Hyderabad, India. The project involves data cleaning, exploratory data analysis, feature engineering, and the development of a machine learning model for rent prediction. The model is deployed in a Streamlit app (`app.py`) for user-friendly input and prediction.
 
